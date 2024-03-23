@@ -1,0 +1,92 @@
+<div class=" lg:flex justify-center items-center h-screen">
+    <div class="w-full my-1 flex flex-col gap-10 lg:flex-row lg:gap-0 lg:justify-center py-8 ">
+      <div
+        class="flex flex-col justify-center lg:w-5/12 bg-general dark:bg-general-dark rounded-xl lg:rounded-l-xl lg:rounded-tr-none lg:rounded-br-none">
+        <div class="py-4 mx-5">
+          <picture>
+            <source srcset="../../../../assets/img/general/logo.avif" type="image/avif">
+            <source srcset="../../../../assets/img/general/logo.webp" type="image/webp">
+            <source srcset="../../../../assets/img/general/logo.png" type="image/png">
+            <img loading="lazy" src="../../../../assets/img/general/logo.png" alt="Logo de la empresa">
+          </picture>
+        </div>
+  
+        <div class="hidden max-w-80 mx-auto pb-8 px-5 lg:block">
+          <picture>
+            <source srcset="../../../../assets/img/register/admin.avif" type="image/avif">
+            <source srcset="../../../../assets/img/register/admin.webp" type="image/webp">
+            <source srcset="../../../../assets/img/register/admin.png" type="image/png">
+            <img loading="lazy" class="aspect-auto" src="../../../../assets/img/register/admin.png" alt="Imagen de user">
+          </picture>
+        </div>
+      </div>
+      <div
+        class="bg-white dark:bg-component-dark p-4 lg:p-0 flex flex-col justify-center rounded-xl lg:rounded-r-xl lg:rounded-bl-none lg:rounded-tl-none">
+        <div class="flex flex-col gap-4 lg:gap-6">
+          <div class="my-5">
+            <h1 class="login-tittle text-center font-bold text-4xl lg:text-5xl lg:mx-16 dark:text-white">
+              Crea una cuenta
+            </h1>
+          </div>
+  
+          <div>
+            <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+              <div class="flex flex-col mx-6 lg:mx-14">
+                <div class="flex justify-between flex-wrap">
+                  <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                    <mat-label class="dark:text-white">Nombre</mat-label>
+                    <input matInput class="dark:placeholder:text-white" placeholder="Ex. Mario" formControlName="name"
+                      required>
+                    <mat-error>{{getErrorMessageName()}}</mat-error>
+                    <mat-icon matSuffix>person</mat-icon>
+                  </mat-form-field>
+  
+                  <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                    <mat-label class="dark:text-white">Apellido</mat-label>
+                    <input matInput class="dark:placeholder:text-white" placeholder="Ex. Arguedas"
+                      formControlName="lastname" required>
+                    <mat-error>{{getErrorMessageLastName()}}</mat-error>
+                    <mat-icon matSuffix>person</mat-icon>
+                  </mat-form-field>
+  
+                  <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                    <mat-label class="dark:text-white">Correo</mat-label>
+                    <input matInput class="dark:placeholder:text-white" placeholder="Ex. correo@mail.com"
+                      formControlName="email" required>
+                    <mat-error>{{getErrorMessageEmail()}}</mat-error>
+                    <mat-icon matSuffix>mail</mat-icon>
+                  </mat-form-field>
+  
+                  <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                    <mat-label class="dark:text-white">Contraseña</mat-label>
+                    <input matInput class="dark:placeholder:text-white" [type]="hidePass ? 'password' : 'text'"
+                      placeholder="Ex. **************" formControlName="password">
+                    <mat-error>{{getErrorMessagePassword()}}</mat-error>
+                    <mat-icon matSuffix><button type="button"
+                        (click)="togglePasswordVisibility()">password</button></mat-icon>
+                  </mat-form-field>
+  
+                  <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                    <mat-label class="dark:text-white">Confirmar Contraseña</mat-label>
+                    <input matInput class="dark:placeholder:text-white" [type]="hidePassConfirm ? 'password' : 'text'"
+                      placeholder="Ex. **************" formControlName="passwordConfirm">
+                    <mat-error>{{getErrorMessagePasswordConfirm()}}</mat-error>
+                    <mat-icon matSuffix><button type="button"
+                        (click)="togglePasswordVisibilityConfirm()">password</button></mat-icon>
+                  </mat-form-field>
+                </div>
+  
+                <div class="mt-7 mb-6 flex flex-col items-center">
+                  <button mat-raised-button type="submit"
+                    class="w-full my-1 lg:w-1/2 bg-buttons btn-text hover:bg-buttons-hover dark:text-white">Registrar</button>
+                  <p class="mt-2 lg:text-sm">¿Ya tienes una cuenta?, <a (click)="showLogin()"
+                      class="login-url dark:text-gray-400"> Inicia
+                      Sesión</a></p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.main-container {
+    width: min(90%, 75rem);
+    margin: 0 auto;
+}
+
+.login-tittle {
+    font-family: var(--ubuntu-mono)
+}
+
+.login-url {
+    color: rgb(75 85 99);
+}
+
+.login-url:hover {
+    cursor: pointer;
+    color: rgb(8 145 178)
+}
+
+.btn-text {
+    font-size: 1rem;
+}
+
+.custom-close-button-text .mat-button-wrapper {
+    color: white;
+}
+
+.mat-form-field.inputs .mat-form-field-underline {
+    background-color: white;
+}
+
+.mat-form-field.inputs ::placeholder {
+    color: white;
+}
