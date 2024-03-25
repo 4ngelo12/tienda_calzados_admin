@@ -4,8 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CanExit } from 'src/app/core/guards';
 import { User } from 'src/app/core/interfaces';
-import { AuthService } from 'src/app/core/services';
-import { ThemeService } from 'src/app/core/services/theme.service';
+import { AuthService, ThemeService } from 'src/app/core/services';
 import Swal from 'sweetalert2';
 
 @Component({

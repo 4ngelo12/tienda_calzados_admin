@@ -1,7 +1,7 @@
+import { query } from '@angular/animations';
 import { ChangeDetectorRef, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { LocalstorageService, UserService } from 'src/app/core/services';
-import { ThemeService } from 'src/app/core/services/theme.service';
+import { LocalstorageService, ThemeService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-navbar',
@@ -11,11 +11,10 @@ import { ThemeService } from 'src/app/core/services/theme.service';
 export class NavbarComponent implements OnInit {
   token: any;
   navbar!: ElementRef;
-  themeMode: boolean = false;
+  themeMode: boolean = true;
 
-  constructor(private router: Router, private user: UserService, private ls: LocalstorageService,
-    private renderer: Renderer2, private el: ElementRef,
-    private cdr: ChangeDetectorRef, private themeService: ThemeService) { }
+  constructor(private router: Router, private ls: LocalstorageService, private renderer: Renderer2,
+    private el: ElementRef, private cdr: ChangeDetectorRef, private themeService: ThemeService) { }
 
   ngOnInit(): void {
     this.navbar = this.el.nativeElement.querySelector('#navbar');
@@ -35,6 +34,7 @@ export class NavbarComponent implements OnInit {
     if (this.navbar) {
       this.rechargeComponent();
       this.renderer.addClass(this.navbar, 'hidden');
+      document.querySelector('#dark-colors')?.classList.remove('gap-6');
     }
   }
 
@@ -42,6 +42,7 @@ export class NavbarComponent implements OnInit {
     if (this.navbar) {
       this.rechargeComponent();
       this.renderer.removeClass(this.navbar, 'hidden');
+      document.querySelector('#dark-colors')?.classList.add('gap-6');
     }
   }
 
@@ -51,8 +52,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  showLogin() {
-    this.router.navigate(['/auth/login']);
+  showProducts() {
+    this.router.navigate(['/products/list']);
   }
 
   showPerfil() {
@@ -62,7 +63,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.ls.logout();
     this.rechargeComponent();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/auth/login']);
   }
 
   // Funciones de la barra de navegación

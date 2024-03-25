@@ -1,4 +1,4 @@
-<nav class="bg-general dark:bg-general-dark h-full flex flex-col 
+<nav class="bg-general dark:bg-general-dark h-screen flex flex-col 
 items-center gap-12 p-6 w-72" id="navbar">
     <div class="size-fit my-2">
         <picture>
@@ -17,7 +17,7 @@ items-center gap-12 p-6 w-72" id="navbar">
                 <mat-icon *ngIf="themeMode" class="text-4xl mt-2">light_mode</mat-icon>
             </span>
 
-            <span class="ms-4 text-lg">Modo oscuro</span>
+            <span class="ms-4 text-lg">Cambiar Modo</span>
         </button>
 
         <button mat-button (click)="showHome()">
@@ -28,7 +28,7 @@ items-center gap-12 p-6 w-72" id="navbar">
             <span class="ms-4 text-lg">Inicio</span>
         </button>
 
-        <button mat-button>
+        <button mat-button (click)="showProducts()">
             <span>
                 <mat-icon class="text-4xl mt-2">inventory_2</mat-icon>
             </span>

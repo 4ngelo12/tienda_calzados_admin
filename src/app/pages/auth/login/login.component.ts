@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Observable, retry } from 'rxjs';
 import { CanExit } from 'src/app/core/guards';
 import { Login } from 'src/app/core/interfaces';
-import { AuthService, LocalstorageService, UserService } from 'src/app/core/services';
-import { ThemeService } from 'src/app/core/services/theme.service';
+import { AuthService, LocalstorageService, ThemeService, UserService } from 'src/app/core/services';
 import Swal from 'sweetalert2';
 
 @Component({

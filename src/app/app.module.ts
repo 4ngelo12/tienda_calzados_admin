@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRouterModule } from './app-router.module';
-import { AuthModule, HomeModule } from './pages';
+import { AuthModule, HomeModule, ProductsModule } from './pages';
 import { SharedModule } from './shared';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -22,6 +22,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AuthModule,
     SharedModule,
     HomeModule,
+    ProductsModule,
     SweetAlert2Module.forRoot(),
   ],
   providers: [

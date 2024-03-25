@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-  private darkThemeSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private darkThemeSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   public darkTheme: Observable<boolean> = this.darkThemeSubject.asObservable();
 
   constructor() { }
