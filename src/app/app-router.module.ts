@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './shared';
 import { HomeComponent } from './pages';
+import { AuthorizationGuard } from './core/guards';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: 'home', component: HomeComponent, pathMatch: 'full'
+    path: 'home', canActivate: [AuthorizationGuard], component: HomeComponent, pathMatch: 'full'
   },
   {
     path: 'auth',

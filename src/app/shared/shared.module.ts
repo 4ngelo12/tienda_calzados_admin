@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotfoundComponent } from './notfound';
-import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UnauthorizedComponent } from './unauthorized';
+import { MaterialModule } from '../modules';
 
 
 
 @NgModule({
   declarations: [
     NotfoundComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    NavbarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports: [
-    NotfoundComponent
+    NotfoundComponent,
+    NavbarComponent,
   ]
 })
 export class SharedModule { }
