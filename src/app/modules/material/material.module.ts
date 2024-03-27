@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSelectModule
   ],
 })
 export class MaterialModule { }

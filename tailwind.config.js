@@ -10,6 +10,7 @@ module.exports = {
         'general': '#1E90FF',
         'buttons': '#398fe5',
         'buttons-hover': '#2e7ac2',
+        'buttons-hover-dark': '#1666B2',
         'screen': '#DBDBDB',
         'general-dark': '#2E86C1',
         'screen-dark': '#1B2631',
@@ -19,18 +20,13 @@ module.exports = {
       },
       width: {
         'calc-50': 'calc(50% - 1.25rem)',
-        '98': '95%',
+        '95': '95%',
         'product-descrition': '38rem'
       },
       height: {
         'screen-60': '60vh',
         'screen-80': '80vh',
       },
-      fontFamily: {
-        'noto-serif-display': '"Noto Serif Display", serif',
-        'raleway': '"Raleway", sans-serif',
-        'ubuntu-mono': '"Ubuntu Mono", monospace'
-      }
     },
   },
   plugins: [],

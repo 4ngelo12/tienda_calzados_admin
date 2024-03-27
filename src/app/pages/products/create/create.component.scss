@@ -1,0 +1,21 @@
+.form-button {
+    button {
+        padding: 0.188rem 0;
+        font-size: 1rem;
+    }
+}
+
+.save-file {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+:is(.dark .input-option) {
+    ::ng-deep .mat-select-value-text {
+        color: white;
+    }
+}

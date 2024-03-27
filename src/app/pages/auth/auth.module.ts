@@ -35,8 +35,7 @@ import { ExternalModule, MaterialModule } from 'src/app/modules';
   providers: [
     UserService,
     AuthService,
-    LocalstorageService,
-    
+    LocalstorageService
   ]
 })
 export class AuthModule { }

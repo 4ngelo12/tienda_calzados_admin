@@ -68,7 +68,7 @@ export class NavbarComponent implements OnInit {
 
   // Funciones de la barra de navegación
   toggleTheme(): void {
-    this.themeService.setDarkTheme(!this.themeMode); // Cambia a tema oscuro
+    this.themeService.setDarkTheme(!this.themeMode); 
   }
 
   tokenAvailable() {

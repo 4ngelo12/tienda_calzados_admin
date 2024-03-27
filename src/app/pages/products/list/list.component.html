@@ -1,9 +1,9 @@
-<div class="ms-12 font-medium mt-5">
+<div class="ms-12 font-medium mt-2">
     <h2 class="text-2xl">Productos</h2>
 
-    <div class="flex justify-between w-98 mt-8">
-        <button class="hover:bg-buttons-hover bg-buttons dark:bg-buttons-dark rounded-lg px-3"
-            (click)="showCreate()">Crear Producto</button>
+    <div class="flex justify-between w-95 mt-6">
+        <button class="hover:bg-buttons-hover bg-buttons dark:bg-buttons-dark dark:hover:bg-buttons-hover-dark 
+        rounded-md px-3" (click)="showCreate()">Crear Producto</button>
 
         <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -16,8 +16,8 @@
             <input type="search" id="default-search" class="block w-full p-3 pl-10 text-sm text-gray-900 border 
             border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500
             dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
-            dark:focus:ring-blue-500 dark:focus:border-blue-500" (keyup)="applyFilter($event)"
-                placeholder="Search..." #txtSearch>
+            dark:focus:ring-blue-500 dark:focus:border-blue-500" (keyup)="applyFilter($event)" placeholder="Search..."
+                #txtSearch>
         </div>
     </div>
 

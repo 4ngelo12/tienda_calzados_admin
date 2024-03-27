@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Products, ProductsResponse } from '../interfaces/product';
+import { NewProducts, Products, ProductsResponse } from '../interfaces/product';
 import baseUrl from '../interfaces/helper';
 
 @Injectable({
@@ -12,14 +12,14 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   public getProducts(): Observable<Products[]> {
-    return this.http.get<ProductsResponse>(`${baseUrl}/products/all?size=8`)
+    return this.http.get<ProductsResponse>(`${baseUrl}/products/all?size=20`)
       .pipe(
-        map( this.transformData)
+        map(this.transformData)
       );
   }
 
   private transformData(resp: ProductsResponse) {
-    const products: Products[] = resp.content.map( product => {
+    const products: Products[] = resp.content.map(product => {
       return {
         id: product.id,
         active: product.active,
@@ -42,8 +42,20 @@ export class ProductsService {
     return this.http.get(`${baseUrl}/products/${id}`)
   }
 
-  public newProduct(product: Products) {
-    return this.http.post(`${baseUrl}/products`, product)
+  public newProduct(product: NewProducts) {
+    const formData = new FormData();
+
+    formData.append('name', product.name);
+    formData.append('description', product.description);
+    formData.append('file', product.image);
+    formData.append('size', product.size.toString());
+    formData.append('brand', product.brand);
+    formData.append('purchase_price', product.purchase_price.toString());
+    formData.append('sale_price', product.sale_price.toString());
+    formData.append('stock', product.stock.toString());
+    formData.append('categoryId', product.category.toString());
+
+    return this.http.post(`${baseUrl}/products`, formData);
   }
 
   public updateProduct(product: Products) {

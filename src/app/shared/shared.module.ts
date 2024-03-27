@@ -4,6 +4,7 @@ import { NotfoundComponent } from './notfound';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UnauthorizedComponent } from './unauthorized';
 import { MaterialModule } from '../modules';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -11,7 +12,8 @@ import { MaterialModule } from '../modules';
   declarations: [
     NotfoundComponent,
     UnauthorizedComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,8 @@ import { MaterialModule } from '../modules';
   exports: [
     NotfoundComponent,
     NavbarComponent,
+    UnauthorizedComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

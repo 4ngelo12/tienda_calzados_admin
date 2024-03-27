@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit, CanExit {
   Loginform!: FormGroup;
   loginData: Login = {} as Login;
-  isDarkTheme: boolean = false;
+  isDarkTheme: boolean = true;
   action: boolean | undefined;
   hide = true;
 

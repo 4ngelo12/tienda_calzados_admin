@@ -3,13 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateComponent } from './create';
 import { ListComponent } from './list';
 import { UpdateComponent } from './update';
-import { AuthorizationGuard } from 'src/app/core/guards';
+import { AuthorizationGuard, WithoutSaveGuard } from 'src/app/core/guards';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'create', canActivate: [AuthorizationGuard], component: CreateComponent },
+      {
+        path: 'create', canActivate: [AuthorizationGuard], canDeactivate: [WithoutSaveGuard],
+        component: CreateComponent
+      },
       { path: 'list', canActivate: [AuthorizationGuard], component: ListComponent },
       { path: 'update/:id', canActivate: [AuthorizationGuard], component: UpdateComponent }
     ]

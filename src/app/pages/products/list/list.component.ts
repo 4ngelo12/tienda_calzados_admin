@@ -5,8 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Products } from 'src/app/core/interfaces/product';
-import { LocalstorageService, ThemeService } from 'src/app/core/services';
-import { ProductsService } from 'src/app/core/services/products.service';
+import { LocalstorageService, ProductsService, ThemeService } from 'src/app/core/services';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -48,8 +47,8 @@ export class ListComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
     });
 
-    this.themeService.darkTheme.subscribe(DarkTheme => {
-      this.isDarkTheme = DarkTheme;
+    this.themeService.darkTheme.subscribe(isDarkTheme => {
+      this.isDarkTheme = isDarkTheme;
     });
   }
 
@@ -66,6 +65,7 @@ export class ListComponent implements OnInit {
   // Funciones
 
   showAlert(id: number, active: boolean): void {
+    console.log(this.isDarkTheme);
     Swal.fire({
       title: '¿Estas seguro?',
       icon: 'warning',
