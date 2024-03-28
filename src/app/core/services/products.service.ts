@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { NewProducts, Products, ProductsResponse } from '../interfaces/product';
+import { Products, ProductsData, ProductsDataUpdate, ProductsResponse } from '../interfaces/product';
 import baseUrl from '../interfaces/helper';
 
 @Injectable({
@@ -42,7 +42,7 @@ export class ProductsService {
     return this.http.get(`${baseUrl}/products/${id}`)
   }
 
-  public newProduct(product: NewProducts) {
+  public newProduct(product: ProductsData) {
     const formData = new FormData();
 
     formData.append('name', product.name);
@@ -58,8 +58,21 @@ export class ProductsService {
     return this.http.post(`${baseUrl}/products`, formData);
   }
 
-  public updateProduct(product: Products) {
-    return this.http.put(`${baseUrl}/products/${product.id}`, product)
+  public updateProduct(product: ProductsDataUpdate, id: number) {
+    const formData = new FormData();
+
+    for (const key in product) {
+      if (product[key] !== null || product[key] !== undefined) {
+        if (key === 'image' && product.image) {
+          formData.append('file', product.image);
+        } else {
+          formData.append(key, product[key]);
+        }
+
+      }
+    }
+
+    return this.http.patch(`${baseUrl}/products/${id}`, formData)
   }
 
   public activateProduct(id: number) {

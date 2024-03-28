@@ -33,7 +33,6 @@ export class CreateComponent implements OnInit, CanExit {
     this.getCategories();
 
     this.themeService.darkTheme.subscribe(darkTheme => {
-      console.log(darkTheme);
       this.isDarkTheme = darkTheme;
     });
 
@@ -110,8 +109,8 @@ export class CreateComponent implements OnInit, CanExit {
     if (this.newProductForm.valid) {
       this.productData = this.newProductForm.value;
       this.productData.image = this.selectedFile;
+
       if (this.imageTypeValidator(this.selectedFile)) {
-        console.log('Tipo de imagen no válido');
         this.snack.open('El tipo de archivo no es una imagen válida. Los formatos permitidos son JPEG y PNG.', 'Cerrar', {
           horizontalPosition: 'end',
           duration: 9000,
@@ -119,8 +118,10 @@ export class CreateComponent implements OnInit, CanExit {
         });
         return;
       }
+      
       this.productService.newProduct(this.newProductForm.value).subscribe({
         next: () => {
+          this.newProductForm.reset();
           this.router.navigate(['/products/list']);
           this.snack.open('Producto creado', 'Aceptar', {
             horizontalPosition: 'end',
