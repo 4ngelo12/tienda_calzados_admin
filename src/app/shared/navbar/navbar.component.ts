@@ -1,4 +1,3 @@
-import { query } from '@angular/animations';
 import { ChangeDetectorRef, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { LocalstorageService, ThemeService } from 'src/app/core/services';
@@ -12,13 +11,17 @@ export class NavbarComponent implements OnInit {
   token: any;
   navbar!: ElementRef;
   themeMode: boolean = true;
+  isMinimized: boolean = false;
 
   constructor(private router: Router, private ls: LocalstorageService, private renderer: Renderer2,
-    private el: ElementRef, private cdr: ChangeDetectorRef, private themeService: ThemeService) { }
+    private el: ElementRef, private cdr: ChangeDetectorRef, private themeService: ThemeService) {
+  }
 
   ngOnInit(): void {
     this.navbar = this.el.nativeElement.querySelector('#navbar');
     this.tokenAvailable();
+    // this.visibility = this.visibleService.getVisibility();
+    // this.ejm();
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -29,7 +32,6 @@ export class NavbarComponent implements OnInit {
   }
 
   // Mostras/Ocultar barra de navegación
-
   hiddenNavbar() {
     if (this.navbar) {
       this.rechargeComponent();
@@ -44,6 +46,20 @@ export class NavbarComponent implements OnInit {
       this.renderer.removeClass(this.navbar, 'hidden');
       document.querySelector('#dark-colors')?.classList.add('gap-6');
     }
+  }
+
+  minimizeNavbar() {
+    this.isMinimized = !this.isMinimized;
+    const span = document.querySelectorAll('.nav-text');
+    document.querySelector('#navbar')?.classList.toggle('min-sidebar');
+
+    span.forEach((element) => {
+      element.classList.toggle('hidden');
+    });
+  }
+
+  showSidebar() {
+    document.querySelector('#navbar')?.classList.toggle('nav');
   }
 
   // Redirecciones
@@ -68,7 +84,7 @@ export class NavbarComponent implements OnInit {
 
   // Funciones de la barra de navegación
   toggleTheme(): void {
-    this.themeService.setDarkTheme(!this.themeMode); 
+    this.themeService.setDarkTheme(!this.themeMode);
   }
 
   tokenAvailable() {

@@ -65,7 +65,6 @@ export class ListComponent implements OnInit {
   // Funciones
 
   showAlert(id: number, active: boolean): void {
-    console.log(this.isDarkTheme);
     Swal.fire({
       title: '¿Estas seguro?',
       icon: 'warning',

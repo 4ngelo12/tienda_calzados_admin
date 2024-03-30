@@ -1,0 +1,60 @@
+#navbar {
+    z-index: 50;
+}
+
+.nav {
+    transition: width 0.5s ease,background-color 0.3s ease;
+
+    .nav-col {
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .nav-col::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    .nav-col::-webkit-scrollbar-thumb {
+        background-color: #b6b6b6;
+        border-radius: 0.313rem;
+    }
+
+    .nav-col mat-icon {
+        margin-right: 0.7rem;
+    }
+}
+
+.min-sidebar {
+    width: 80px;
+}
+
+.showNavbar {
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 3.125rem;
+    height: 3.125rem;
+    right: 0.938rem;
+    bottom: 15px;
+    background-color: #64748b;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .showNavbar {
+        display: flex;
+    }
+    
+    #navbar {
+        position: fixed;
+    }
+
+    .nav {
+        position: absolute;
+        overflow: hidden;
+        left: -350px;
+    }
+}

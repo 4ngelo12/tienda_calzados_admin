@@ -1,7 +1,7 @@
-<div class="ms-12 font-medium mt-2">
+<div class="md:ms-12 font-medium mt-2">
     <h2 class="text-2xl">Productos</h2>
 
-    <div class="flex justify-between w-95 mt-6">
+    <div class="flex justify-between gap-6 w-95 mt-6">
         <button class="hover:bg-buttons-hover bg-buttons dark:bg-buttons-dark dark:hover:bg-buttons-hover-dark 
         rounded-md px-3" (click)="showCreate()">Crear Producto</button>
 
@@ -13,11 +13,10 @@
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
             </div>
-            <input type="search" id="default-search" class="block w-full p-3 pl-10 text-sm text-gray-900 border 
-            border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500
-            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
-            dark:focus:ring-blue-500 dark:focus:border-blue-500" (keyup)="applyFilter($event)" placeholder="Search..."
-                #txtSearch>
+            <input type="search" class="w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg 
+            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
+            dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                (keyup)="applyFilter($event)" placeholder="Search...">
         </div>
     </div>
 
@@ -101,6 +100,6 @@
         </table>
 
         <mat-paginator [pageSizeOptions]="[10, 20, 30, 50, 100]" showFirstLastButtons
-            class="w-11/12 mb-6 dark:bg-component-dark dark:text-white"></mat-paginator>
+            class="md:w-11/12 mb-6 dark:bg-component-dark dark:text-white"></mat-paginator>
     </div>
 </div>
