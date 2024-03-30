@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'home', canActivate: [AuthorizationGuard], component: HomeComponent, pathMatch: 'full'
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./pages').then(m => m.AdminModule)
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./pages').then(m => m.AuthModule)
   },

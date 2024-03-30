@@ -8,9 +8,8 @@ export interface User {
 
 export interface UserLs {
     name: string;
-    lastName: string;
+    lastname: string;
     email: string;
-    birthdate: Date;
 }
 
 export interface UpdateUser {

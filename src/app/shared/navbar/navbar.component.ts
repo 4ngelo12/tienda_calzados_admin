@@ -73,7 +73,7 @@ export class NavbarComponent implements OnInit {
   }
 
   showPerfil() {
-    this.router.navigate(['/users/perfil']);
+    this.router.navigate(['/admin/profile']);
   }
 
   logout() {

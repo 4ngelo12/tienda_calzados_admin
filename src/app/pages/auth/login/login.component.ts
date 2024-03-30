@@ -115,10 +115,6 @@ export class LoginComponent implements OnInit, CanExit {
   }
 
   // Redirecciones
-  showRegister() {
-    this.router.navigate(['/auth/register']);
-  }
-
   showRecoveryPassword() {
     this.router.navigate(['/auth/recovery-password']);
   }

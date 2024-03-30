@@ -1,0 +1,52 @@
+<div class="w-full flex md:justify-center py-8">
+    <div class="bg-white dark:bg-component-dark p-4 flex flex-col justify-center rounded-xl lg:w-8/12">
+        <div class="my-5">
+            <h1 class="login-tittle text-center font-semibold text-4xl lg:text-5xl lg:mx-16">
+                Editar Datos
+            </h1>
+        </div>
+
+        <div>
+            <form [formGroup]="updateForm" (ngSubmit)="updateUser()">
+                <div class="flex flex-col mx-6 lg:mx-14">
+                    <div class="flex justify-between flex-wrap">
+                        <mat-form-field class="w-full py-2 dark:text-white">
+                            <mat-label class="dark:text-white">Nombre</mat-label>
+                            <input matInput class="dark:placeholder:text-white" placeholder="Ex. Mario"
+                                formControlName="name">
+                            <mat-error>{{getErrorMessageName()}}</mat-error>
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-full py-2 dark:text-white">
+                            <mat-label class="dark:text-white">Apellido</mat-label>
+                            <input matInput class="dark:placeholder:text-white" placeholder="Ex. Arguedas"
+                                formControlName="lastname">
+                            <mat-error>{{getErrorMessageLastName()}}</mat-error>
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-full py-2 dark:text-white">
+                            <mat-label class="dark:text-white">Correo</mat-label>
+                            <input matInput class="dark:placeholder:text-white" placeholder="Ex. correo@mail.com"
+                                formControlName="email">
+                            <mat-error>{{getErrorMessageEmail()}}</mat-error>
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mt-7 mb-6 flex flex-col md:flex-row gap-6 items-center">
+                        <button mat-raised-button class="w-full bg-buttons btn-text hover:bg-buttons-hover">
+                            Actualizar
+                        </button>
+
+                        <button type="button" mat-raised-button class="w-full bg-red-500 btn-text hover:bg-red-600"
+                            (click)="showAlert()">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
