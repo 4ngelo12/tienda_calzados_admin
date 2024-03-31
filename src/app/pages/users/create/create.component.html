@@ -1,0 +1,92 @@
+<div class="bg-white dark:bg-component-dark py-12 mx-24 flex flex-col justify-center rounded-xl">
+    <div class="flex flex-col gap-4 lg:gap-6">
+        <div class="my-5">
+            <h1 class="text-center font-semibold text-4xl lg:text-5xl dark:text-white">
+                Crea una cuenta
+            </h1>
+        </div>
+
+        <div>
+            <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+                <div class="flex flex-col mx-6 lg:mx-14">
+                    <div class="flex justify-between flex-wrap">
+                        <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                            <mat-label class="dark:text-white">Nombre</mat-label>
+                            <input matInput class="dark:placeholder:text-white" placeholder="Ex. Mario"
+                                formControlName="name" required>
+                            <mat-error>{{getErrorMessageName()}}</mat-error>
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                            <mat-label class="dark:text-white">Apellido</mat-label>
+                            <input matInput class="dark:placeholder:text-white" placeholder="Ex. Arguedas"
+                                formControlName="lastname" required>
+                            <mat-error>{{getErrorMessageLastName()}}</mat-error>
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                            <mat-label class="dark:text-white">Correo</mat-label>
+                            <input matInput class="dark:placeholder:text-white" placeholder="Ex. correo@mail.com"
+                                formControlName="email" required>
+                            <mat-error>{{getErrorMessageEmail()}}</mat-error>
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                            <mat-label class="dark:text-white">Fecha Nacimiento</mat-label>
+                            <input matInput class="dark:placeholder:text-white" [matDatepicker]="picker"
+                                formControlName="birthdate" placeholder="MM/DD/YYYY">
+                            <mat-error>{{getErrorMessageBirthDate()}}</mat-error>
+                            <mat-datepicker-toggle matSuffix class="dark:text-white"
+                                [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-full lg:w-calc-50">
+                            <mat-label class="dark:text-white">Categoría</mat-label>
+                            <mat-select class="dark:text-white input-option" formControlName="idRole">
+                                <mat-option *ngFor="let role of roles" [value]="role.id">
+                                    <span>{{roleNames[role.nombre]}}</span>
+                                </mat-option>
+                            </mat-select>
+                            <mat-error>{{getErrorMessageRole()}}</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                            <mat-label class="dark:text-white">Contraseña</mat-label>
+                            <input matInput class="dark:placeholder:text-white" [type]="hidePass ? 'password' : 'text'"
+                                placeholder="Ex. **************" formControlName="password">
+                            <mat-error>{{getErrorMessagePassword()}}</mat-error>
+                            <mat-icon matSuffix><button type="button"
+                                    (click)="togglePasswordVisibility()">password</button></mat-icon>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                            <mat-label class="dark:text-white">Confirmar Contraseña</mat-label>
+                            <input matInput class="dark:placeholder:text-white"
+                                [type]="hidePassConfirm ? 'password' : 'text'" placeholder="Ex. **************"
+                                formControlName="passwordConfirm">
+                            <mat-error>{{getErrorMessagePasswordConfirm()}}</mat-error>
+                            <mat-icon matSuffix><button type="button"
+                                    (click)="togglePasswordVisibilityConfirm()">password</button></mat-icon>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row justify-center gap-5 form-button mt-5">
+                        <button mat-flat-button class="bg-buttons dark:bg-buttons-dark hover:bg-buttons-hover 
+                                hover:dark:bg-buttons-hover-dark dark:text-white w-full md:w-5/12">
+                            Registrar Usuario
+                        </button>
+
+                        <button mat-flat-button color="warn" type="button" class="hover:bg-red-600 w-full md:w-5/12"
+                            (click)="showList()">
+                            Regresar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

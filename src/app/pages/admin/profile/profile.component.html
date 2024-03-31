@@ -33,6 +33,15 @@
                             <mat-error>{{getErrorMessageEmail()}}</mat-error>
                             <mat-icon matSuffix>mail</mat-icon>
                         </mat-form-field>
+
+                        <mat-form-field class="w-full py-2 dark:text-white">
+                            <mat-label class="dark:text-white">Fecha Nacimiento</mat-label>
+                            <input matInput class="dark:placeholder:text-white" [matDatepicker]="picker"
+                                formControlName="birthdate" placeholder="MM/DD/YYYY">
+                            <mat-datepicker-toggle matSuffix class="dark:text-white"
+                                [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
                     </div>
 
                     <div class="mt-7 mb-6 flex flex-col md:flex-row gap-6 items-center">

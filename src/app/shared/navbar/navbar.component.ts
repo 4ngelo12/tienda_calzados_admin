@@ -72,6 +72,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/products/list']);
   }
 
+  showUsers() {
+    this.router.navigate(['/users/list']);
+  }
+
   showPerfil() {
     this.router.navigate(['/admin/profile']);
   }

@@ -67,7 +67,7 @@
                 <mat-form-field class="w-full lg:w-calc-50">
                     <mat-label class="dark:text-white">Categoría</mat-label>
                     <mat-select class="dark:text-white input-option" formControlName="category">
-                        <mat-option *ngFor="let category of categories" class="ejmplo" [value]="category.id">
+                        <mat-option *ngFor="let category of categories" [value]="category.id">
                             <span >{{category.nombre}}</span>
                         </mat-option>
                     </mat-select>

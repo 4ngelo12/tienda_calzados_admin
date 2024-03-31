@@ -1,0 +1,5 @@
+:is(.dark .input-option) {
+    ::ng-deep .mat-select-value-text {
+        color: white;
+    }
+}

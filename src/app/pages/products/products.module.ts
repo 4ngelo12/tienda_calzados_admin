@@ -4,8 +4,7 @@ import { ListComponent } from './list';
 import { CreateComponent } from './create';
 import { UpdateComponent } from './update';
 import { ProductsRouterModule } from './products-router.module';
-import { ExternalModule, MaterialModule } from 'src/app/modules';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ExternalModule, FormModule, MaterialModule } from 'src/app/modules';
 import { AuthRouterModule } from '../auth/auth-router.module';
 import { ProductsService } from 'src/app/core/services';
 
@@ -22,8 +21,7 @@ import { ProductsService } from 'src/app/core/services';
     ProductsRouterModule,
     ExternalModule,
     MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
+    FormModule,
     AuthRouterModule,
   ],
   exports: [

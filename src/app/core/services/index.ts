@@ -4,3 +4,4 @@ export * from './localstorage.service';
 export * from './theme.service';
 export * from './cateory.service';
 export * from './products.service';
+export * from './roles.service';

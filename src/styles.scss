@@ -46,3 +46,47 @@ body {
 .mat-form-field.inputs ::placeholder {
     color: white;
 }
+
+/* Estilos de lista */
+
+tr.detail-row {
+    height: 0;
+}
+
+.container-table {
+    display: block;
+    max-height: 77vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.content {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+
+.container-table::-webkit-scrollbar {
+    width: 5px;
+    /* Ancho de la barra de desplazamiento */
+}
+
+.container-table::-webkit-scrollbar-track {
+    background-color: #4e4e4e;
+}
+
+.container-table::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+.container-table::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.form-button {
+    button {
+        padding: 0.188rem 0;
+        font-size: 1rem;
+    }
+}
+

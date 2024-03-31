@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminRouterModule } from './admin-router.module';
-import { ExternalModule, MaterialModule } from 'src/app/modules';
+import { ExternalModule, FormModule, MaterialModule } from 'src/app/modules';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -15,8 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MaterialModule,
     ExternalModule,
-    FormsModule,
-    ReactiveFormsModule,
+    FormModule,
     AdminRouterModule
   ],
   exports: [

@@ -3,31 +3,41 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CanExit } from 'src/app/core/guards';
-import { User } from 'src/app/core/interfaces';
-import { AuthService, ThemeService } from 'src/app/core/services';
+import { Roles, User } from 'src/app/core/interfaces';
+import { AuthService, RolesService, ThemeService } from 'src/app/core/services';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
-export class RegisterComponent implements OnInit, CanExit {
+export class CreateComponent implements OnInit, CanExit {
   registerForm!: FormGroup;
   RegisterData: User = {} as User;
+  roles: Roles[] = [];
   hidePass = true;
+  hidePassConfirm = true;
   isDarkTheme: boolean = false;
   action: boolean | undefined;
-  hidePassConfirm = true;
+
+  roleNames: { [key: string]: string } = {
+    'ROLE_ADMIN': 'Administrador',
+    'ROLE_CLIENTE': 'Cliente',
+  };
 
   constructor(private auth: AuthService, private router: Router, private themeService: ThemeService,
-    private snack: MatSnackBar, private fb: FormBuilder) { }
+    private roleService: RolesService, private snack: MatSnackBar, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.getRoles();
+
     this.registerForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(45)]],
       lastname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(45)]],
       email: ['', [Validators.required, Validators.email]],
+      birthdate: ['', [Validators.required]],
+      idRole: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       passwordConfirm: ['', [Validators.required, Validators.minLength(8)]]
     });
@@ -39,7 +49,7 @@ export class RegisterComponent implements OnInit, CanExit {
 
   async onExit(): Promise<boolean> {
     this.action = undefined;
-    
+
     if (this.registerForm.dirty) {
       const result = await this.showAlert();
       if (result === undefined || !result) {
@@ -84,11 +94,23 @@ export class RegisterComponent implements OnInit, CanExit {
     this.hidePassConfirm = !this.hidePassConfirm;
   }
 
+  // Funciones para el formulario
+
+  getRoles() {
+    this.roleService.getRoles().subscribe((data: any) => {
+      this.roles = data;
+    });
+  }
+
+  // Redirecciones
+  showList() {
+    this.router.navigate(['users/list']);
+  }
+
   // Ejecucion de la funcion registerSubmit
   registerSubmit() {
     if (this.registerForm.valid) {
       this.RegisterData = this.registerForm.value;
-      this.RegisterData.idRole = 1;
 
       if (this.registerForm.value.password !== this.registerForm.value.passwordConfirm) {
         this.snack.open('Las contraseñas no coinciden', 'Aceptar', {
@@ -122,15 +144,10 @@ export class RegisterComponent implements OnInit, CanExit {
           });
         },
         complete: () => {
-          this.router.navigate(['/auth/login']);
+          this.showList();
         }
       })
     }
-  }
-
-   // Redirecciones
-   showLogin() {
-    this.router.navigate(['auth/login']);
   }
 
   // Validaciones de formulario
@@ -167,6 +184,14 @@ export class RegisterComponent implements OnInit, CanExit {
     return this.registerForm.get('email')!.hasError('email') ? 'Formato de correo invalido' : '';
   }
 
+  getErrorMessageBirthDate() {
+    return this.registerForm.get('birthdate')!.hasError('required') ? 'Debes ingresar un valor' : '';
+  }
+
+  getErrorMessageRole() {
+    return this.registerForm.get('idRole')!.hasError('required') ? 'Necesitas seleccionar un rol para el usuario' : '';
+  }
+
   getErrorMessagePassword() {
     if (this.registerForm.get('password')!.hasError('required')) {
       return 'Debes ingresar un valor';
@@ -182,4 +207,6 @@ export class RegisterComponent implements OnInit, CanExit {
 
     return this.registerForm.get('passwordConfirm')!.hasError('minlength') ? 'Longitud de contraseña insuficiente' : '';
   }
+
+
 }

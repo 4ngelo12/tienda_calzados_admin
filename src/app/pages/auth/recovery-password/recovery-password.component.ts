@@ -106,7 +106,7 @@ export class RecoveryPasswordComponent implements OnInit, CanExit {
 
           this.userService.sendEmail(this.recoveryPasswordData).subscribe({
             next: (data: any) => {
-              this.snack.open(data.mensaje, 'Cerrar', {
+              this.snack.open(data.message, 'Cerrar', {
                 horizontalPosition: 'end',
                 duration: 5000,
                 panelClass: ['bg-green-600', 'text-white', 'custom-close-button-text', 'dark:bg-green-800'],

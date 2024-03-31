@@ -26,11 +26,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userData = this.lsService.getUser();
 
-    console.log(this.userData.lastname);
-
     this.updateForm = this.fb.group({
       name: [this.userData.name, [Validators.minLength(3), Validators.maxLength(45)]],
       lastname: [this.userData.lastname, [Validators.minLength(3), Validators.maxLength(45)]],
+      birthdate: [this.userData.birthdate, [Validators.required]],
       email: [this.userData.email, [Validators.email]],
     });
 
