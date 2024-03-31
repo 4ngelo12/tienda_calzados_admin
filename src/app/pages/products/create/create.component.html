@@ -1,17 +1,17 @@
-<div class="w-full flex py-4 md:px-28">
+<div class="w-full flex py-4 md:px-14 lg:px-28">
     <div class="bg-white dark:bg-component-dark px-12 py-10 mt-3 rounded-lg">
         <h2 class="text-center text-4xl font-medium mb-6">Registrar Producto</h2>
 
         <form [formGroup]="newProductForm" (ngSubmit)="submitProduct()">
             <div class="flex md:gap-x-6 flex-wrap">
-                <mat-form-field class="w-full my-1 lg:w-calc-50 dark:text-white">
+                <mat-form-field class="w-full my-1 md:w-calc-50 dark:text-white">
                     <mat-label class="dark:text-white">Name</mat-label>
                     <input matInput class="dark:placeholder:text-white" placeholder="Ex. Zapatila nueva"
                         formControlName="name" required>
                     <mat-error>{{getErrorMessageName()}}</mat-error>
                 </mat-form-field>
 
-                <div class="w-full lg:w-calc-50">
+                <div class="w-full md:w-calc-50">
                     <mat-form-field class="w-full">
                         <mat-label class="dark:text-white">Selecciona un archivo</mat-label>
                         <input matInput placeholder="Selecciona un archivo" class="dark:disabled:text-white" disabled>
@@ -29,42 +29,42 @@
                     <mat-error>{{getErrorMessageDescription()}}</mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="w-full lg:w-calc-50 mb-4 dark:text-white">
+                <mat-form-field class="w-full md:w-calc-50 mb-4 dark:text-white">
                     <mat-label class="dark:text-white">Talla</mat-label>
                     <input matInput type="number" class="dark:placeholder:text-white" placeholder="Ex. Zapatila nueva"
                         formControlName="size" required>
                     <mat-error>{{getErrorMessageSize()}}</mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="w-full lg:w-calc-50 mb-4 dark:text-white">
+                <mat-form-field class="w-full md:w-calc-50 mb-4 dark:text-white">
                     <mat-label class="dark:text-white">Marca</mat-label>
                     <input matInput class="dark:placeholder:text-white" placeholder="Ex. Zapatila nueva"
                         formControlName="brand" required>
                     <mat-error>{{getErrorMessageBrand()}}</mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="w-full lg:w-calc-50 mb-4 dark:text-white">
+                <mat-form-field class="w-full md:w-calc-50 mb-4 dark:text-white">
                     <mat-label class="dark:text-white">Precio de Compra</mat-label>
                     <input matInput type="number" class="dark:placeholder:text-white" placeholder="Ex. Zapatila nueva"
                         formControlName="purchase_price" required>
                     <mat-error>{{getErrorMessagePurchasePrice()}}</mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="w-full lg:w-calc-50 mb-4 dark:text-white">
+                <mat-form-field class="w-full md:w-calc-50 mb-4 dark:text-white">
                     <mat-label class="dark:text-white">Precio de Venta</mat-label>
                     <input matInput type="number" class="dark:placeholder:text-white" placeholder="Ex. Zapatila nueva"
                         formControlName="sale_price" required>
                     <mat-error>{{getErrorMessageSalePrice()}}</mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="w-full lg:w-calc-50 mb-4 dark:text-white">
+                <mat-form-field class="w-full md:w-calc-50 mb-4 dark:text-white">
                     <mat-label class="dark:text-white">Stock</mat-label>
                     <input matInput type="number" class="dark:placeholder:text-white" placeholder="Ex. Zapatila nueva"
                         formControlName="stock" required>
                     <mat-error>{{getErrorMessageStock()}}</mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="w-full lg:w-calc-50">
+                <mat-form-field class="w-full md:w-calc-50">
                     <mat-label class="dark:text-white">Categoría</mat-label>
                     <mat-select class="dark:text-white input-option" formControlName="category">
                         <mat-option *ngFor="let category of categories" [value]="category.id">
