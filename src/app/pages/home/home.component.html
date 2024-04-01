@@ -30,7 +30,7 @@
                 <hr class="border-y-2 border-neutral-700 dark:border-sky-600 w-full">
 
                 <p class="my-4">
-                    <span class="font-semibold">Total de ventas:</span> S/{{ totalSalesByMonth.totalSales }}
+                    <span class="font-semibold">Total de ventas:</span> S/{{ totalSalesByMonth.totalSales || 0 }}
                 </p>
             </div>
         </div>

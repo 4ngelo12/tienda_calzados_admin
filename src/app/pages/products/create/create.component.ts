@@ -6,6 +6,7 @@ import { CanExit } from 'src/app/core/guards';
 import { Category } from 'src/app/core/interfaces';
 import { Products } from 'src/app/core/interfaces/product';
 import { CateoryService, ProductsService, ThemeService } from 'src/app/core/services';
+import { MediaService } from 'src/app/core/services/media.service';
 import Swal from 'sweetalert2';
 
 
@@ -27,7 +28,8 @@ export class CreateComponent implements OnInit, CanExit {
   isDarkTheme: boolean = false;
 
   constructor(private productService: ProductsService, private categoryService: CateoryService,
-    private themeService: ThemeService, private router: Router, private snack: MatSnackBar, private fb: FormBuilder) { }
+    private mediaService: MediaService, private themeService: ThemeService, private router: Router, 
+    private snack: MatSnackBar, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getCategories();
@@ -118,10 +120,12 @@ export class CreateComponent implements OnInit, CanExit {
         });
         return;
       }
-      
+
       this.productService.newProduct(this.newProductForm.value).subscribe({
         next: () => {
           this.newProductForm.reset();
+          this.mediaService.uploadImage(this.selectedFile!).subscribe();
+
           this.router.navigate(['/products/list']);
           this.snack.open('Producto creado', 'Aceptar', {
             horizontalPosition: 'end',
