@@ -4,8 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import baseUrl from 'src/app/core/interfaces/helper';
 import { Products } from 'src/app/core/interfaces/product';
-import { LocalstorageService, MediaService, ProductsService, ThemeService } from 'src/app/core/services';
+import { LocalstorageService, ProductsService, ThemeService } from 'src/app/core/services';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -21,7 +22,7 @@ import Swal from 'sweetalert2';
   ],
 })
 export class ListComponent implements OnInit {
-  imgURL!: string;
+  imgURL: string = `${baseUrl}/media`;
   columnNamesDisplay: string[] = ['code', 'name', 'size', 'stock', 'active', 'Actions'];
   columnsToDisplayWithExpand = [...this.columnNamesDisplay, 'expand'];
   //Nombres para mostrar al usuario
@@ -37,11 +38,9 @@ export class ListComponent implements OnInit {
   showDetails: boolean = false;
   expandedElement!: Products | null;
   isDarkTheme: boolean = false;
-http: any;
 
   constructor(private lsService: LocalstorageService, private productService: ProductsService,
-    public mediaService: MediaService, private themeService: ThemeService, private router: Router,
-    private snack: MatSnackBar) { }
+    private themeService: ThemeService, private router: Router, private snack: MatSnackBar) { }
 
   ngOnInit(): void {
     this.lsService.validateToken();
