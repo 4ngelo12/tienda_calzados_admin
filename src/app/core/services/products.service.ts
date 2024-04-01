@@ -82,4 +82,8 @@ export class ProductsService {
   public deleteProduct(id: number) {
     return this.http.delete(`${baseUrl}/products/${id}`)
   }
+
+  public getProductsByLowStock() {
+    return this.http.get(`${baseUrl}/products/low-stock`);
+  }
 }

@@ -1,1 +1,55 @@
-<p>home works!</p>
+<div class="px-6">
+    <h2 class="text-4xl font-semibold mb-6 pt-6">
+        Dashboard de Administrador
+    </h2>
+
+    <div class="flex flex-col gap-6">
+        <div class="flex flex-col md:flex-row gap-6 justify-evenly">
+            <div class="rounded-md p-5 bg-white dark:bg-component-dark">
+                <h3 class="text-2xl font-medium">
+                    Productos más vendidos
+                </h3>
+
+                <hr class="border-y-2 border-neutral-700 dark:border-sky-600  w-full">
+
+                <div class="my-4">
+                    <p>
+                        <span class="font-semibold">Nombre del producto:</span> {{ productbyId.name }}
+                    </p>
+                    <p>
+                        <span class="font-semibold">Cantidad vendida:</span> {{ sellingProducts.quantity }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="rounded-md p-5 bg-white dark:bg-component-dark">
+                <h3 class="text-2xl font-medium">
+                    Ventas del mes
+                </h3>
+
+                <hr class="border-y-2 border-neutral-700 dark:border-sky-600 w-full">
+
+                <p class="my-4">
+                    <span class="font-semibold">Total de ventas:</span> S/{{ totalSalesByMonth.totalSales }}
+                </p>
+            </div>
+        </div>
+
+        <div class="rounded-md p-5 bg-white dark:bg-component-dark">
+            <h3 class="text-2xl font-medium">
+                Productos con bajo stock
+            </h3>
+
+            <hr class="border-y-2 border-neutral-700 dark:border-sky-600 w-full">
+
+            <div class="flex flex-col md:flex-row justify-between">
+                <div *ngFor="let item of lowStockProducts" class="my-4">
+                    <p> <span class="font-semibold">Código: </span> {{ item.code }} </p>
+                    <p> <span class="font-semibold">Nombre: </span> {{ item.name }} </p>
+
+                    <p> <span class="font-semibold">Stock:</span> {{ item.stock }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

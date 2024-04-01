@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
+import { SalesService } from 'src/app/core/services';
 
 
 
@@ -13,6 +14,9 @@ import { HomeComponent } from './home.component';
   ],
   exports: [
     HomeComponent
+  ],
+  providers: [
+    SalesService
   ]
 })
 export class HomeModule { }
