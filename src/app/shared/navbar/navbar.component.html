@@ -1,5 +1,5 @@
 <!-- *ngIf="visibleService.getVisibility(); else navbarMinimized" -->
-<nav class="bg-general dark:bg-general-dark h-screen flex flex-col items-center p-6 w-72 nav" id="navbar">
+<nav class="bg-general dark:bg-general-dark h-screen flex flex-col gap-16 md:gap-0 items-center p-6 w-72 nav" id="navbar">
     <div class="size-fit my-2">
         <button type="button" (click)="minimizeNavbar()">
             <picture *ngIf="!isMinimized; else minimized">
@@ -66,6 +66,6 @@
     </div>
 </nav>
 
-<div class="showNavbar" id="showNavbar" (click)="showSidebar()">
+<div class="showNavbar bg-slate-400 dark:bg-slate-700" id="showNavbar" (click)="showSidebar()">
     <mat-icon class="dark:text-white" >apps</mat-icon>
 </div>
