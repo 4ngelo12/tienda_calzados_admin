@@ -100,7 +100,7 @@ export class RecoveryPasswordComponent implements OnInit, CanExit {
             },
             {
               "key": "url",
-              "value": `http://localhost:4200/auth/change-password/${this.userId}`
+              "value": `https://4ngelo12.github.io/tienda_calzados_admin/auth/change-password/${this.userId}`
             }
           ];
 
