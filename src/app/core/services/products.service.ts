@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Products, ProductsData, ProductsDataUpdate, ProductsResponse } from '../interfaces/product';
-import baseUrl from '../interfaces/helper';
+import baseUrl from './helper';
 
 @Injectable({
   providedIn: 'root'

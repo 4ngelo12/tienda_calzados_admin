@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Login, User } from '../interfaces';
-import baseUrl from '../interfaces/helper';
-
+import baseUrl from './helper';
 @Injectable({
   providedIn: 'root'
 })

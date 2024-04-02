@@ -7,3 +7,4 @@ export * from './products.service';
 export * from './roles.service';
 export * from './sales.service';
 export * from './media.service';
+export * from './helper';

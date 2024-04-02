@@ -4,9 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import baseUrl from 'src/app/core/interfaces/helper';
 import { Products } from 'src/app/core/interfaces/product';
 import { LocalstorageService, ProductsService, ThemeService } from 'src/app/core/services';
+import baseUrl from 'src/app/core/services/helper';
 import Swal from 'sweetalert2';
 
 @Component({
