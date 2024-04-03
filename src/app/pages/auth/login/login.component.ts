@@ -80,6 +80,7 @@ export class LoginComponent implements OnInit, CanExit {
   loginSubmit() {
     if (this.Loginform.valid) {
       this.loginData = this.Loginform.value;
+      this.lsService.logout();
       this.auth.login(this.loginData).subscribe({
         next: (res: any) => {
           this.lsService.setToken(res.jwTtoken);

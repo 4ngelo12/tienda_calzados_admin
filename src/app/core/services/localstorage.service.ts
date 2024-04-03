@@ -36,7 +36,6 @@ export class LocalstorageService {
     // Eliminar los datos de la sesion del usuario
   
     public deleteUser() {
-  
       localStorage.removeItem('user');
     }
   

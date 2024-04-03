@@ -110,7 +110,7 @@ export class CreateComponent implements OnInit, CanExit {
   submitProduct() {
     if (this.newProductForm.valid) {
       this.productData = this.newProductForm.value;
-      this.productData.image = this.selectedFile;
+      this.newProductForm.value.image = this.selectedFile;
 
       if (this.imageTypeValidator(this.selectedFile)) {
         this.snack.open('El tipo de archivo no es una imagen válida. Los formatos permitidos son JPEG y PNG.', 'Cerrar', {
